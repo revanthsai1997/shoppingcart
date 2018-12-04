@@ -2,14 +2,17 @@
 <h2>Categories</h2>
 <!--<form class="example-form">-->
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Add Category" [(ngModel)]="category.name">
+    <input matInput placeholder="Add Category" [(ngModel)]="category.categoryName">
   </mat-form-field>
   <button mat-button (click)="addCategory()">Add</button><br>
 <!--</form>-->
 <mat-form-field>
   <mat-select placeholder="Categories">
-    <mat-option *ngFor="let category of categorylist" [value]="category.id">
-      {{category.name}}
+    
+    <mat-option *ngFor="let category of categorylist" [value]="category.categoryid">
+      <a routerLink="/products/{{category.categoryid}}">{{category.categoryName}}</a>
     </mat-option>
+  
   </mat-select>
 </mat-form-field>
+<router-outlet></router-outlet>

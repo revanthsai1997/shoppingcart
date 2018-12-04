@@ -1,7 +1,7 @@
 import { Categories } from "./categories";
 
 export const categoriesList:Categories[]=[
-    {id:1,name:"Mobiles"},
-    {id:2,name:"Laptops"},
-    {id:3,name:"Shoes"}
+    {categoryid:1,categoryName:"Mob"},
+    {categoryid:2,categoryName:"Lap"},
+    {categoryid:3,categoryName:"Sho"}
 ]

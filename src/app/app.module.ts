@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
+
 import {MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -41,15 +43,18 @@ import {MatAutocompleteModule,
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,} from '@angular/material';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent
+    AdminComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,

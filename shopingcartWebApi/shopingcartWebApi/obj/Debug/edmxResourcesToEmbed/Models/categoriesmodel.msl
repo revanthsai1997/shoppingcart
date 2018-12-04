@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="shopingcartModelStoreContainer" CdmEntityContainer="shopingcartEntities">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="shopingcartModel.category">
+        <MappingFragment StoreEntitySet="categories">
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="categoryName" ColumnName="categoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="shopingcartModel.product">
+        <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="productid" ColumnName="productid" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

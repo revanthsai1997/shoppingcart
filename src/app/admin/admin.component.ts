@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { categoriesList } from '../categorieslist';
 import { FormControl,FormGroup } from '@angular/forms';
+import { CategoryService } from '../category.service';
+import { Categories } from '../categories';
 
 @Component({
   selector: 'app-admin',
@@ -8,17 +10,24 @@ import { FormControl,FormGroup } from '@angular/forms';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  id=categoriesList.length;
-  category={id:0,name:""};
-  categorylist=categoriesList;
-  constructor() { }
+  //id=categoriesList.length;
+  tempcategory:Categories;
+  category:Categories={categoryid:0,categoryName:""};
+  categorylist:Categories[];
+  constructor(private categoryservice:CategoryService) { }
 
   ngOnInit() {
+    this.getCategories();
+  }
+  getCategories(){
+    this.categoryservice.getCategories().subscribe(categories=>this.categorylist=categories);
   }
   addCategory(){
-    this.category.id=this.id;
-    this.id++;
-    categoriesList.push(this.category);
-    this.category={id:0,name:""};
+    //this.category.categoryid=this.id;
+    //this.id++;
+    //categoriesList.push(this.category);
+    this.tempcategory=this.category;
+    this.categoryservice.addCategory(this.category).subscribe(category=>{this.categorylist.push(this.tempcategory)});
+    this.category={categoryid:0,categoryName:""};
   }
 }
