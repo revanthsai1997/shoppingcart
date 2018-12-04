@@ -1,0 +1,15 @@
+<mat-toolbar>Admin</mat-toolbar>
+<h2>Categories</h2>
+<!--<form class="example-form">-->
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Add Category" [(ngModel)]="category.name">
+  </mat-form-field>
+  <button mat-button (click)="addCategory()">Add</button><br>
+<!--</form>-->
+<mat-form-field>
+  <mat-select placeholder="Categories">
+    <mat-option *ngFor="let category of categorylist" [value]="category.id">
+      {{category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
