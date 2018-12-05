@@ -18,6 +18,7 @@
     <Property Name="qty" Type="int" />
     <Property Name="isactive" Type="int" />
     <Property Name="createddate" Type="date" />
+    <Property Name="picture" Type="image" />
   </EntityType>
   <Association Name="FK_products_categories">
     <End Role="categories" Type="Self.categories" Multiplicity="0..1" />

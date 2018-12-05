@@ -12,6 +12,7 @@
     <EntitySetMapping Name="products">
       <EntityTypeMapping TypeName="shopingcartModel.product">
         <MappingFragment StoreEntitySet="products">
+          <ScalarProperty Name="picture" ColumnName="picture" />
           <ScalarProperty Name="productid" ColumnName="productid" />
           <ScalarProperty Name="productName" ColumnName="productName" />
           <ScalarProperty Name="categoryid" ColumnName="categoryid" />

@@ -24,11 +24,14 @@ export class CategoryService {
     //categoriesList.push(category);
     return this.http.post<Categories>("http://localhost:63948/Api/admin/addCategory",category,this.httpOptions).pipe(catchError(this.handleError<Categories>('addCategory')));
   }
-  getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>("http://localhost:63948/Api/admin/getProducts").pipe(catchError(this.handleError('getProducts',[])));
+  getProducts(id:number):Observable<Product[]>{
+    return this.http.get<Product[]>(`http://localhost:63948/Api/admin/getProducts/${id}`).pipe(catchError(this.handleError('getProducts',[])));
   }
   addProduct(product:Product){
     return this.http.post<Product>("http://localhost:63948/Api/admin/addProduct",product,this.httpOptions).pipe(catchError(this.handleError<Product>('addProduct')));
+  }
+  getProductsGroupByCategories():Observable<any>{
+    return this.http.get<any>("http://localhost:63948/Api/admin/getProductsGroupByCategories").pipe(catchError(this.handleError('getProductsGroupByCategories',[])));
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

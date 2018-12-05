@@ -13,8 +13,8 @@ export class ProductsComponent implements OnInit {
 
   productlist:Product[];
   tempproduct:Product;
-  product:Product={productid:0,productName:"",price:0,qty:0,categoryid:0};
-  displayedColumns: string[] = ['productName', 'price', 'qty','action'];
+  product:Product={productid:0,productName:"",price:0,qty:0,categoryid:0,picture:null};
+  displayedColumns: string[] = ['productName', 'price', 'qty','picture','action'];
   constructor(
     private route:ActivatedRoute,
     private categoryservice:CategoryService
@@ -23,9 +23,23 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
   }
+  onFileChange(event) {
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+
+          this.product.picture= reader.result.split(',')[1];
+          //console.log(this.product.picture);
+      };
+      
+    }
+  }
 
   getProducts(){
-    this.categoryservice.getProducts().subscribe(products=>this.productlist=products);
+    const id=+this.route.snapshot.paramMap.get("categoryid");
+    this.categoryservice.getProducts(id).subscribe(products=>this.productlist=products);
   }
   addProduct(){
     const id=+this.route.snapshot.paramMap.get("categoryid");
@@ -34,6 +48,6 @@ export class ProductsComponent implements OnInit {
       this.categoryservice.addProduct(this.product).subscribe(product=>{
         this.getProducts();
       });
-      this.product={productid:0,productName:"",price:0,qty:0,categoryid:0};
+      this.product={productid:0,productName:"",price:0,qty:0,categoryid:0,picture:null};
   }
 }

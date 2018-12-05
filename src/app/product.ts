@@ -4,4 +4,5 @@ export class Product{
     price:number;
     qty:number;
     categoryid:number;
+    picture:string|any;
 }

@@ -1,0 +1,44 @@
+<mat-toolbar><h1>ShoppingCart.com</h1></mat-toolbar>
+
+<div  *ngFor="let groupproduct of productsgroupbycategorieslist"><span id="categoryName"><h2>{{groupproduct.categoryName}}</h2></span>
+  
+  
+  <!--<div *ngFor="let product of groupproduct.Products">{{product.productName}}</div>-->
+  
+  
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <mat-card class="card-picture" *ngFor="let product of groupproduct.Products">
+      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+        <span fxFlex="80%">{{product.productName}}</span>
+        <!--<mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <mat-icon fxFlex="10%">delete</mat-icon>-->
+      </mat-card-title>
+      <img mat-card-image src='data:image/jpeg;base64,{{product.picture}}'>
+    </mat-card>
+  </div>
+
+
+
+  
+  <!--<div class="cdk-virtual-scroll-data-source-example">
+    <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50" class="example-viewport">
+      
+      <div *cdkVirtualFor="let product of groupproduct.Products" class="example-item">{{product.productName}}</div>
+      
+      
+    
+   </cdk-virtual-scroll-viewport>-->
+  </div>
+
+  
+
+  <!--<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card-picture" *ngFor="let product of groupproduct.Products" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <span fxFlex="80%">{{product.productName}}</span>
+            <mat-icon fxFlex="10%">mode_edit</mat-icon>
+            <mat-icon fxFlex="10%">delete</mat-icon>
+          </mat-card-title>
+          <img mat-card-image [src]="picture.img">
+        </mat-card>
+      </div>-->

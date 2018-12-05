@@ -7,6 +7,7 @@ import { AdminComponent } from './admin/admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {MatAutocompleteModule,
   MatBadgeModule,
@@ -44,12 +45,16 @@ import {MatAutocompleteModule,
   MatTooltipModule,
   MatTreeModule,} from '@angular/material';
 import { ProductsComponent } from './products/products.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    ProductsComponent
+    ProductsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +96,9 @@ import { ProductsComponent } from './products/products.component';
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatTreeModule
+  MatTreeModule,
+  ScrollingModule,
+  FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

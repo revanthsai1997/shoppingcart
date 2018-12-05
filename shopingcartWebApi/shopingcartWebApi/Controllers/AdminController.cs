@@ -28,9 +28,9 @@ namespace shopingcartWebApi.Controllers
             return Ok();
         }
         [HttpGet]
-        public IHttpActionResult getProducts()
+        public IHttpActionResult getProducts(int id)
         {
-            List<ProductDTO> productlist = ctx.products.Select(n => new ProductDTO() { productid = n.productid, productName = n.productName, price = n.price, qty = n.qty,categoryid=n.categoryid }).ToList();
+            List<ProductDTO> productlist = ctx.products.Where(p=>p.categoryid==id).Select(n => new ProductDTO() { productid = n.productid, productName = n.productName, price = n.price, qty = n.qty,categoryid=n.categoryid,picture=n.picture }).ToList();
             return Json(productlist);
         }
         [HttpPost]
@@ -41,9 +41,18 @@ namespace shopingcartWebApi.Controllers
             prod.price = pro.price;
             prod.qty = pro.qty;
             prod.categoryid = pro.categoryid;
+            prod.picture = pro.picture;
             ctx.products.Add(prod);
+
             ctx.SaveChanges();
             return Ok();
+        }
+        [HttpGet]
+        public IHttpActionResult getProductsGroupByCategories()
+        {
+            //List<ProductDTO> productlist = 
+            var list=ctx.categories.Select(c => new { c.categoryid,c.categoryName,Products=c.products.Select(p=>new { p.productid,p.price,p.qty,p.productName,p.picture }).ToList()}).ToList();
+            return Json(list);
         }
     }
 }

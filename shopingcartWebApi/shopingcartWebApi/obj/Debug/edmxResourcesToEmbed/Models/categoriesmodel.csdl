@@ -20,6 +20,7 @@
     <Property Name="isactive" Type="Int32" />
     <Property Name="createddate" Type="DateTime" Precision="0" />
     <NavigationProperty Name="category" Relationship="Self.FK_products_categories" FromRole="products" ToRole="categories" />
+    <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_products_categories">
     <End Role="categories" Type="Self.category" Multiplicity="0..1" />

@@ -21,6 +21,7 @@ namespace shopingcartWebApi.Models
         public Nullable<int> qty { get; set; }
         public Nullable<int> isactive { get; set; }
         public Nullable<System.DateTime> createddate { get; set; }
+        public byte[] picture { get; set; }
     
         public virtual category category { get; set; }
     }
