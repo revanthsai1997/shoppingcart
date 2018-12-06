@@ -47,6 +47,7 @@ import {MatAutocompleteModule,
 import { ProductsComponent } from './products/products.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { MycartComponent } from './mycart/mycart.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     AppComponent,
     AdminComponent,
     ProductsComponent,
-    DashboardComponent
+    DashboardComponent,
+    MycartComponent
   ],
   imports: [
     BrowserModule,

@@ -14,3 +14,12 @@
 span{
   color: DimGray;
 }
+.toolbtn{
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+.plusbtn,.minusbtn{
+  font-size: 20px;
+  
+}

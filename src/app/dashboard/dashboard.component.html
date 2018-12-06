@@ -1,22 +1,29 @@
-<mat-toolbar><h1>ShoppingCart.com</h1></mat-toolbar>
+<mat-toolbar><h1>ShoppingCart.com</h1>
+  <a routerLink='/mycart'>
+  <button mat-raised-button color="primary"
+      matBadge="{{cartno}}" matBadgePosition="before" matBadgeColor="accent" class="toolbtn" (click)='clickcart()' >
+    Cart
+  </button></a>
+</mat-toolbar>
 
 <div  *ngFor="let groupproduct of productsgroupbycategorieslist"><span id="categoryName"><h2>{{groupproduct.categoryName}}</h2></span>
   
   
   <!--<div *ngFor="let product of groupproduct.Products">{{product.productName}}</div>-->
-  
-  
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <mat-card class="card-picture" *ngFor="let product of groupproduct.Products">
-      <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-        <span fxFlex="80%">{{product.productName}}</span>
-        <!--<mat-icon fxFlex="10%">mode_edit</mat-icon>
-        <mat-icon fxFlex="10%">delete</mat-icon>-->
-      </mat-card-title>
-      <img mat-card-image src='data:image/jpeg;base64,{{product.picture}}'>
-    </mat-card>
-  </div>
 
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <mat-card class="card-picture" *ngFor="let product of groupproduct.Products">
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <span fxFlex="80%">{{product.productName}}</span>
+            
+            <mat-icon fxFlex="10%"><button class="plusbtn" mat-mini-fab color="accent" (click)="clickselect(product)">+</button></mat-icon>&nbsp;&nbsp;
+            <mat-icon fxFlex="10%"><button class="minusbtn" mat-mini-fab color="accent">-</button></mat-icon>
+            
+          </mat-card-title>
+          <img mat-card-image src='data:image/jpeg;base64,{{product.picture}}'>
+        </mat-card>
+      </div>
+</div>
 
 
   
@@ -28,7 +35,7 @@
       
     
    </cdk-virtual-scroll-viewport>-->
-  </div>
+  
 
   
 

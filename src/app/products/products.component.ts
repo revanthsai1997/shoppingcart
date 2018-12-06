@@ -15,9 +15,11 @@ export class ProductsComponent implements OnInit {
   tempproduct:Product;
   product:Product={productid:0,productName:"",price:0,qty:0,categoryid:0,picture:null};
   displayedColumns: string[] = ['productName', 'price', 'qty','picture','action'];
+  
   constructor(
     private route:ActivatedRoute,
     private categoryservice:CategoryService
+    
   ) { }
 
   ngOnInit() {
