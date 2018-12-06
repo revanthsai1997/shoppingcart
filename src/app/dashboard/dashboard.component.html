@@ -16,8 +16,8 @@
           <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
             <span fxFlex="80%">{{product.productName}}</span>
             
-            <mat-icon fxFlex="10%"><button class="plusbtn" mat-mini-fab color="accent" (click)="clickselect(product)">+</button></mat-icon>&nbsp;&nbsp;
-            <mat-icon fxFlex="10%"><button class="minusbtn" mat-mini-fab color="accent">-</button></mat-icon>
+            <mat-icon fxFlex="10%"><button  class="plusbtn" mat-mini-fab color="accent" (click)="clickselect(product)">+</button></mat-icon>&nbsp;&nbsp;
+            <mat-icon fxFlex="10%"><button class="minusbtn" mat-mini-fab color="accent" (click)="clickunselect(product)">-</button></mat-icon>
             
           </mat-card-title>
           <img mat-card-image src='data:image/jpeg;base64,{{product.picture}}'>
