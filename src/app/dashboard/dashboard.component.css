@@ -18,8 +18,14 @@ span{
   position: absolute;
   right: 0;
   margin-right: 20px;
+  margin-bottom: 40px;
+  
 }
 .plusbtn,.minusbtn{
   font-size: 20px;
   
+}
+mat-toolbar{
+  height: 85px;
+  font-size: 30px;
 }
